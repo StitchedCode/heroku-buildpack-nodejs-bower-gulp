@@ -125,11 +125,17 @@ if [ -f $build_dir/bower.json ]; then
 
   status "Found bower.json - Updating bower locally"
   
+  status "flag 1"
   if [ -e node_modules/.bin/bower ]; then
+    status "flag 2"
     npm update bower 2>&1 | indent
+    status "flag 3"
   else
+    status "flag 4"
     npm install bower 2>&1 | indent
+    status "flag 5"
   fi
+  status "flag 6"
 
   # Copy cached bower_components back into the build tree and prune unless
   # the directory is checked in already
